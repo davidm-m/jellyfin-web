@@ -374,7 +374,6 @@ const UserParentalControl = () => {
                 <div className='verticalSection'>
                     <SectionTitleContainer
                         title={userName}
-                        url='https://jellyfin.org/docs/general/server/users/'
                     />
                 </div>
                 <SectionTabs activeTab='userparentalcontrol'/>
@@ -418,7 +417,6 @@ const UserParentalControl = () => {
                             btnClassName='fab submit sectionTitleButton'
                             btnTitle='Add'
                             btnIcon='add'
-                            isLinkVisible={false}
                         />
                         <div className='fieldDescription'>
                             {globalize.translate('AllowContentWithTagsHelp')}
@@ -443,7 +441,6 @@ const UserParentalControl = () => {
                             btnClassName='fab submit sectionTitleButton'
                             btnTitle='Add'
                             btnIcon='add'
-                            isLinkVisible={false}
                         />
                         <div className='fieldDescription'>
                             {globalize.translate('BlockContentWithTagsHelp')}
@@ -467,7 +464,6 @@ const UserParentalControl = () => {
                             btnClassName='fab submit sectionTitleButton'
                             btnTitle='Add'
                             btnIcon='add'
-                            isLinkVisible={false}
                         />
                         <p>{globalize.translate('HeaderAccessScheduleHelp')}</p>
                         <div className='accessScheduleList paperList'>
