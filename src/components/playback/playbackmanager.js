@@ -21,8 +21,9 @@ import { includesAny } from '../../utils/container.ts';
 import { getItems } from '../../utils/jellyfin-apiclient/getItems.ts';
 import { getItemBackdropImageUrl } from '../../utils/jellyfin-apiclient/backdropImage';
 
-import { bindMediaSegmentManager } from 'apps/stable/features/playback/utils/mediaSegmentManager';
 import { PlayerEvent } from 'apps/stable/features/playback/constants/playerEvent';
+import { bindMediaSegmentManager } from 'apps/stable/features/playback/utils/mediaSegmentManager';
+import { bindMediaSessionSubscriber } from 'apps/stable/features/playback/utils/mediaSessionSubscriber';
 import { MediaError } from 'types/mediaError';
 import { getMediaError } from 'utils/mediaError';
 import { toApi } from 'utils/jellyfin-apiclient/compat';
@@ -3664,8 +3665,9 @@ export class PlaybackManager {
             });
         }
 
-        bindMediaSegmentManager(self);
-        this._skipSegment = bindSkipSegment(self);
+        if (!browser.tv && !browser.xboxOne && !browser.ps4) {
+            this._skipSegment = bindSkipSegment(self);
+        }
     }
 
     getCurrentPlayer() {
@@ -4229,6 +4231,8 @@ export class PlaybackManager {
 }
 
 export const playbackManager = new PlaybackManager();
+bindMediaSegmentManager(playbackManager);
+bindMediaSessionSubscriber(playbackManager);
 
 window.addEventListener('beforeunload', function () {
     try {
