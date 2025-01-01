@@ -113,6 +113,7 @@ Jellyfin Web is the frontend used for most of the clients available for end user
 Haven't been able to work out how to connect a dev build to the Jellyfin Media Player application. Web interface works fine though!
 To get a local version of jellyfin-web running on the server (so they share the same port and JMP works):
 * Generate a production build of jellyfin-web `npm run build:production`
+* Delete the old jellyfin-web installation `rm -r path/to/Jellyfin/Server/jellyfin-web`
 * Copy the `dist` folder to the server installation `cp -R dist path/to/Jellyfin/Server/jellyfin-web`
 * Restart Jellyfin
 
