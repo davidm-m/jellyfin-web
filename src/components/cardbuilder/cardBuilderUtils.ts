@@ -207,15 +207,13 @@ export const getPostersPerRow = (shape: string, screenWidth: number, isOrientati
 const postersPerRowPortrait = (screenWidth: number, isTV: boolean) => {
     switch (true) {
         case isTV: return 100 / 16.66666667;
-        case screenWidth >= 2200: return 10;
-        case screenWidth >= 1920: return 100 / 11.1111111111;
-        case screenWidth >= 1600: return 8;
-        case screenWidth >= 1400: return 100 / 14.28571428571;
-        case screenWidth >= 1200: return 100 / 16.66666667;
-        case screenWidth >= 800: return 5;
-        case screenWidth >= 700: return 4;
-        case screenWidth >= 500: return 100 / 33.33333333;
-        default: return 100 / 33.33333333;
+        case screenWidth >= 2200: return 6;
+        case screenWidth >= 1920: return 5;
+        case screenWidth >= 1600: return 4;
+        case screenWidth >= 1400: return 4;
+        case screenWidth >= 1200: return 3;
+        case screenWidth >= 700: return 2;
+        default: return 2;
     }
 };
 
