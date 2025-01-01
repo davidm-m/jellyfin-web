@@ -1,12 +1,11 @@
 import { clearBackdrop, setBackdrops } from '../components/backdrop/backdrop';
-import * as userSettings from './settings/userSettings';
 import libraryMenu from './libraryMenu';
 import { pageClassOn } from '../utils/dashboard';
 
 const cache = {};
 
 function enabled() {
-    return userSettings.enableBackdrops();
+    return true;
 }
 
 function getBackdropItemIds(apiClient, userId, types, parentId) {
