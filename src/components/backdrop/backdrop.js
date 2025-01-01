@@ -216,12 +216,24 @@ let currentRotationIndex = -1;
 export function setBackdrops(items, imageOptions, enableImageRotation, isEnabled = false) {
     if (isEnabled || enabled()) {
         const images = getImageUrls(items, imageOptions);
+        shuffle(images);
 
         if (images.length) {
             startRotation(images, enableImageRotation);
         } else {
             clearBackdrop();
         }
+    }
+}
+
+function shuffle(array) {
+    let currentIndex = array.length;
+
+    while (currentIndex != 0) {
+        const randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
     }
 }
 
