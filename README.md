@@ -107,3 +107,13 @@ Jellyfin Web is the frontend used for most of the clients available for end user
 - ❌ &mdash; Deprecated, do **not** create new files here
 - 🧹 &mdash; Needs cleanup
 - 🐉 &mdash; Serious mess (Here be dragons)
+
+
+# Personal Notes
+Haven't been able to work out how to connect a dev build to the Jellyfin Media Player application. Web interface works fine though!
+To get a local version of jellyfin-web running on the server (so they share the same port and JMP works):
+* Generate a production build of jellyfin-web `npm run build:production`
+* Copy the `dist` folder to the server installation `cp -R dist path/to/Jellyfin/Server/jellyfin-web`
+* Restart Jellyfin
+
+Ordinary (soft) symlinks in order to avoid the copying step haven't worked, whether the source directory is in Windows or WSL. Haven't tried hardlinking yet.
