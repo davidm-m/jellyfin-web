@@ -111,10 +111,13 @@ Jellyfin Web is the frontend used for most of the clients available for end user
 
 # Personal Notes
 Haven't been able to work out how to connect a dev build to the Jellyfin Media Player application. Web interface works fine though!
-To get a local version of jellyfin-web running on the server (so they share the same port and JMP works):
+You can run a dev build at the same time as regular Jellyfin because the ports don't conflict - 8080 for dev and 8096 for prod. This also lets you compare your build with the currently running prod one side-by-side.
+
+To get a local version of jellyfin-web running on the server (so they share the same port and JMP will use it):
 * Generate a production build of jellyfin-web `npm run build:production`
-* Delete the old jellyfin-web installation `rm -r path/to/Jellyfin/Server/jellyfin-web`
-* Copy the `dist` folder to the server installation `cp -R dist path/to/Jellyfin/Server/jellyfin-web`
 * Restart Jellyfin
 
-Ordinary (soft) symlinks in order to avoid the copying step haven't worked, whether the source directory is in Windows or WSL. Haven't tried hardlinking yet.
+That's it! A symlink between the `dist` folder and the jellyfin-web installation takes care of everything.
+
+To make that symlink the command is `New-Item -ItemType SymbolicLink -Target "path\to\this\repo\jellyfin-web\dist" -Path "path\to\Jellyfin\Server\jellyfin-web"` in a **privileged** PowerShell window.
+This works for WSL too - paths to WSL filesystems look like `\\wsl$\Ubuntu-22.04\home\username\foo`.
