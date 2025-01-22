@@ -1250,7 +1250,6 @@ export default function (view) {
                     return;
                 case 'Enter':
                     if (e.target.tagName !== 'BUTTON') {
-                        e.preventDefault();
                         playbackManager.playPause(currentPlayer);
                         showOsd(btnPlayPause);
                     }

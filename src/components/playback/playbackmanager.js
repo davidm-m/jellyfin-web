@@ -3665,9 +3665,8 @@ export class PlaybackManager {
             });
         }
 
-        if (!browser.tv && !browser.xboxOne && !browser.ps4) {
-            this._skipSegment = bindSkipSegment(self);
-        }
+        bindMediaSegmentManager(self);
+        this._skipSegment = bindSkipSegment(self);
     }
 
     getCurrentPlayer() {

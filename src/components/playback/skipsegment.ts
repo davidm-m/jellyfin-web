@@ -21,15 +21,6 @@ interface ShowOptions {
 
 function onHideComplete(this: HTMLButtonElement) {
     if (this) {
-        // Handle focus after the hide transition completes
-        if (document.activeElement === this) {
-            this.blur();
-            const pauseButton = document.querySelector('.btnPause');
-            if (pauseButton && focusManager.isCurrentlyFocusable(pauseButton)) {
-                focusManager.focus(pauseButton);
-            }
-        }
-
         this.classList.add('hide');
     }
 }
@@ -50,8 +41,7 @@ class SkipSegment extends PlaybackSubscriber {
         if (!this.skipElement && this.currentSegment) {
             let buttonHtml = '';
 
-            // FIXME: Move skip button to the video OSD
-            buttonHtml += '<div class="skip-button-container"><button is="emby-button" class="skip-button hide skip-button-hidden"></button></div>';
+            buttonHtml += '<button is="emby-button" class="skip-button hide skip-button-hidden"></button>';
 
             document.body.insertAdjacentHTML('beforeend', buttonHtml);
 
