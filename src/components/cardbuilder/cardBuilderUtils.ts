@@ -278,13 +278,15 @@ const postersPerRowOverflowSmallBackdrop = (screenWidth: number, isLandscape: bo
 const postersPerRowOverflowPortrait = (screenWidth: number, isLandscape: boolean, isTV: boolean) => {
     switch (true) {
         case isTV: return 100 / 15.5;
-        case isLandscape && screenWidth >= 1700: return 100 / 11.6;
-        case isLandscape: return 100 / 15.5;
-        case screenWidth >= 1400: return 100 / 15;
-        case screenWidth >= 1200: return 100 / 18;
-        case screenWidth >= 760: return 100 / 23;
-        case screenWidth >= 400: return 100 / 31.5;
-        default: return 100 / 42;
+        case isLandscape && screenWidth >= 1700: return 6;
+        case isLandscape: return 5;
+        case screenWidth >= 2200: return 6;
+        case screenWidth >= 1920: return 5;
+        case screenWidth >= 1600: return 4;
+        case screenWidth >= 1400: return 4;
+        case screenWidth >= 1200: return 3;
+        case screenWidth >= 700: return 2;
+        default: return 2;
     }
 };
 
