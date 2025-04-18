@@ -111,7 +111,7 @@ Jellyfin Web is the frontend used for most of the clients available for end user
 
 # Personal Notes
 Haven't been able to work out how to connect a dev build to the Jellyfin Media Player application. Web interface works fine though!
-You can run a dev build at the same time as regular Jellyfin because the ports don't conflict - 8080 for dev and 8096 for prod. This also lets you compare your build with the currently running prod one side-by-side.
+You can run a dev build at the same time as regular Jellyfin because the ports don't conflict - 8080 for dev and 8096 for prod. This also lets you compare your build with the currently running prod one side-by-side (as long as you don't have a symlink).
 
 To get a local version of jellyfin-web running on the server (so they share the same port and JMP will use it):
 * Generate a production build of jellyfin-web `npm run build:production`
